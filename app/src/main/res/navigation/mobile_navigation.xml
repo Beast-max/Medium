@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/Feed">
+
+    <fragment
+        android:id="@+id/Feed"
+        android:name="com.example.conduit.ui.feeds.Globalfeed"
+        android:label="@string/feed"
+        tools:layout="@layout/fragment_feed" >
+
+        <action
+            android:id="@+id/action_Feed_to_nav_article"
+            app:destination="@id/nav_article"
+            app:popUpTo="@id/Feed">
+            <argument
+                android:name="@string/arg_article_id"
+                app:argType="string" />
+        </action>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/myfeed"
+        android:name="com.example.conduit.MyFeed"
+        android:label="@string/myfeed"
+        tools:layout="@layout/fragment_feed">
+
+        <action
+            app:popUpTo="@id/myfeed"
+            android:id="@+id/action_myfeed_to_nav_article"
+            app:destination="@id/nav_article" />
+    </fragment>
+    <fragment
+        android:id="@+id/Auth"
+        android:name="com.example.conduit.Auth.Authfragement"
+        android:label="Auth"
+        tools:layout="@layout/fragment_auth" />
+    <fragment
+        android:id="@+id/nav_satting"
+        android:name="com.example.conduit.setting.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/nav_article"
+        android:name="com.example.conduit.ui.feeds.ArticleFragment"
+        tools:layout="@layout/articleview" />
+
+
+</navigation>
